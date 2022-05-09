@@ -2,6 +2,13 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.4.
 
+
+## Features include
+1- Human data input using ngModel, FormsModule
+2- Human list show using ngFor
+3- Human remove from list
+4- Human edit by clicking on list row
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
