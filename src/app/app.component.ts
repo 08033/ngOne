@@ -1,5 +1,6 @@
 import { Component, Input, Output } from '@angular/core';
-import { resetFakeAsyncZone } from '@angular/core/testing';
+import { humana } from './../services/humanModel'
+import { AppService } from './../services/appservice'
 
 @Component({
   selector: 'app-root',
@@ -11,12 +12,16 @@ export class AppComponent {
   title = 'ngOne';
   //@Input() values = { name: "He", age: 15, dob: "10/10/2001" };  
   values = { name: "", age: 18, dob: "2004-01-01" };
-  allHuman: humana[] = [];  
+  allHuman: humana[] = [];
+
+  constructor(AppSvc: AppService) {
+    //a) load data from server
+    AppSvc.getPeople().subscribe(n => {         
+      this.allHuman = <humana[]>n.data;        
+    });    
+  }
 
   HandleClick() {
-    //alert('World');    
-    // console.log('values')
-    // console.log(this.allHuman);
     this.allHuman.push(this.values)
     this.Reset();
   }
@@ -30,8 +35,3 @@ export class AppComponent {
   }
 }
 
-interface humana {
-  name: string
-  age: number
-  dob: string
-}
