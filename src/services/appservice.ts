@@ -13,7 +13,7 @@ export class AppService {
         return this.http.get<any>(this.ServerUrl)
     }
 
-    insertPeople(pupil: humana) {
+    insertPupil(pupil: humana) {
         return this.http.post<any>(this.ServerUrl, pupil)
     }
     deletePupil(pupil: humana) {
@@ -21,10 +21,13 @@ export class AppService {
             headers: new HttpHeaders({
                 'Content-Type': 'application/json'
             }),
-            body: pupil           
+            body: pupil
         }
 
         return this.http.delete<any>(this.ServerUrl, options)
+    }
+    updatePupil(pupil: humana) {
+        return this.http.put<any>(this.ServerUrl, pupil)
     }
 
 }

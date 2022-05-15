@@ -1,6 +1,7 @@
 
 export interface humana {
-    name: string
-    age: number
-    dob: string
-  }
+  id: number
+  name: string
+  age: number
+  dob: string
+}
